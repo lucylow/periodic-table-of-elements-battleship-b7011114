@@ -1,0 +1,81 @@
+{
+  "source": "code-archive",
+  "capabilities": [
+    {
+      "capability": "code and routes",
+      "source": "Atom Armada archive: seven TanStack pages",
+      "outcome": "preserve",
+      "status": "verified",
+      "next_action": null,
+      "verification": "All seven pages imported; browser navigation and direct visits verified, including battle/quiz redirects without active state."
+    },
+    {
+      "capability": "gameplay",
+      "source": "Local single-player fleet engine and chemistry questions",
+      "outcome": "preserve",
+      "status": "verified",
+      "next_action": null,
+      "verification": "Nine tests passed; browser verified auto-deployment, a correct-answer strike, enemy response, duplicate rejection, archive search, and training."
+    },
+    {
+      "capability": "schema and records",
+      "source": "No database; browser-local wins, games, and XP",
+      "outcome": "preserve device-local storage",
+      "status": "verified",
+      "next_action": null,
+      "verification": "New battle/training XP read back after reload; reset verified and temporary test progress removed. No database or bundled prior browser saves."
+    },
+    {
+      "capability": "auth identities and authorization",
+      "source": "No accounts or private server data in application call sites",
+      "outcome": "not applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "uploaded file bytes and assets",
+      "source": "CSS artwork and Lucide icons; no uploaded media references",
+      "outcome": "preserve",
+      "status": "verified",
+      "next_action": null,
+      "verification": "Original CSS artwork and icons visibly verified on desktop and mobile; no external file bytes required."
+    },
+    {
+      "capability": "external providers and secrets",
+      "source": "Google Fonts only; no API or credential call sites",
+      "outcome": "preserve font stylesheet",
+      "status": "verified",
+      "next_action": null,
+      "verification": "Original font stylesheet preserved; desktop and mobile rendered without page errors. No required secrets."
+    },
+    {
+      "capability": "public endpoints, callbacks, webhooks, schedules",
+      "source": "No server endpoints or schedules in archive",
+      "outcome": "not applicable",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "cutover",
+      "source": "Archive import without published URL",
+      "outcome": "preview only",
+      "status": "verified",
+      "next_action": "Publishing remains user-controlled."
+    },
+    {
+      "capability": "verification",
+      "source": "Source tests and browser workflows",
+      "outcome": "verify imported experience",
+      "status": "verified",
+      "next_action": null,
+      "verification": "Build OK; nine tests passed; seven pages, desktop/mobile rendering, navigation, and representative gameplay flows passed. Full victory/loss playthrough not exercised."
+    },
+    {
+      "capability": "audio",
+      "source": "Source explicitly disables audio control",
+      "outcome": "preserve unsupported state",
+      "status": "verified",
+      "next_action": null
+    }
+  ]
+}

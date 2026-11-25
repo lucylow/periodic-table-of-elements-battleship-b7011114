@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+
+- Keep Atom Armada gameplay in `src/features/armada` and share session state through the root GameShell; page navigation must preserve an active match.
+- Retain the imported JavaScript gameplay modules with allowJs enabled while keeping TypeScript strict; this preserves the source engine without an unrelated rewrite.
+- Preserve device-local pilot records for this offline practice game; no accounts or external data services are part of the source.
+- Preserve the target project’s framework versions and runtime bootstrap when importing source; this maintains compatibility with Lovable hosting.

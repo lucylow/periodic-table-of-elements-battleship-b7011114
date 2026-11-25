@@ -403,3 +403,15 @@
 .progress-track::-moz-progress-bar { background: var(--cyan); }
 @media(max-width:520px) { .board-panel, .archive-panel { overflow: hidden; } .group-numbers { display: none; } .hero h1 { font-size: 56px; } }
 @media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* Keep keyboard focus visible on the imported custom controls. */
+.armada-control:focus-visible,
+.searchbox:focus-within {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+.armada-control:disabled { cursor: not-allowed; }
+.table-scroll:focus-within { scroll-padding: 8px; }
+@media(max-width:800px) {
+  .sidebar:not(.show) { visibility: hidden; }
+}

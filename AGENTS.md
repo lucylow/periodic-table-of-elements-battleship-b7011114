@@ -35,3 +35,5 @@ use the editor.
 - Retain the imported JavaScript gameplay modules with allowJs enabled while keeping TypeScript strict; this preserves the source engine without an unrelated rewrite.
 - Preserve device-local pilot records for this offline practice game; no accounts or external data services are part of the source.
 - Preserve the target project’s framework versions and runtime bootstrap when importing source; this maintains compatibility with Lovable hosting.
+- Keep board lookup and manual-placement logic in pure helpers that reference the canonical catalogue; this makes legality testable without duplicating element data.
+- Parse device-local pilot saves through the shared validated parser before rendering counters; malformed or incompatible storage must not crash the game.

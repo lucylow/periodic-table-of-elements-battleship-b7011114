@@ -1,11 +1,35 @@
 import { describe, expect, it } from 'vitest';
-import { elements, fleet, lanes, randomPlacement } from './game-engine';
+import { elements, familyLabel, fleet, lanes, questions, randomPlacement } from './game-engine';
 
 describe('Imported chemistry and fleet rules', () => {
   it('includes every atomic number from 1 through 118', () => {
     expect(elements.map(e => e.z)).toEqual(Array.from({length: 118}, (_, i) => i + 1));
     expect(elements.find(e => e.z === 11)?.symbol).toBe('Na');
     expect(elements.find(e => e.z === 26)?.symbol).toBe('Fe');
+    expect(elements.find(e => e.z === 1)?.symbol).toBe('H');
+    expect(elements.find(e => e.z === 79)?.symbol).toBe('Au');
+  });
+  it('assigns every element a recognized family with representative fixtures', () => {
+    for (const element of elements) expect(Object.keys(familyLabel)).toContain(element.family);
+    expect(elements.find(e => e.z === 2)?.family).toBe('noble');
+    expect(elements.find(e => e.z === 11)?.family).toBe('alkali');
+    expect(elements.find(e => e.z === 26)?.family).toBe('transition');
+    expect(elements.find(e => e.z === 57)?.family).toBe('lanth');
+    expect(elements.find(e => e.z === 89)?.family).toBe('act');
+  });
+  it('keeps the four original vessel lengths and twelve-cell fleet', () => {
+    expect(fleet.map(ship => ship.len)).toEqual([2, 3, 3, 4]);
+    expect(fleet.reduce((total, ship) => total + ship.len, 0)).toBe(12);
+  });
+  it('keeps eight structurally valid four-option chemistry questions', () => {
+    expect(questions).toHaveLength(8);
+    for (const question of questions) {
+      expect(question.a).toHaveLength(4);
+      expect(new Set(question.a).size).toBe(4);
+      expect(Number.isInteger(question.c)).toBe(true);
+      expect(question.c).toBeGreaterThanOrEqual(0);
+      expect(question.c).toBeLessThan(4);
+    }
   });
   it('deploys all four ships into 12 distinct legal cells', () => {
     for(let attempt = 0; attempt < 100; attempt++) {
